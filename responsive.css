@@ -1,0 +1,14 @@
+@media (max-width: 600px) {
+
+  #container {
+    width: auto;
+    padding: 20px;
+  } 
+
+  .hero {
+    display: block;
+    padding: 10px;
+    height: auto;
+  }
+  
+}
