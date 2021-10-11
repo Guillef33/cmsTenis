@@ -10,7 +10,6 @@
         <input type="text" name="email" required>
     </div>
     <br>
-    <input type="submit">
     <button type="submit" value="Enviar correo">Enviar Correo</button>
 </form>
 
