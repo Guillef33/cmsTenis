@@ -8,12 +8,11 @@
 
         <label for="email">Email</label>
         <input type="text" name="email" required>
-
-        <label for="comment">Comentario</label>
-        <textarea id="" cols="30" rows="10" name="comment" required>
     </div>
+    <br>
+    <input type="submit">
     <button type="submit" value="Enviar correo">Enviar Correo</button>
 </form>
 
 
-<?php include "templates/include/footer.php" ?>
+<?php include "../templates/include/footer.php" ?>

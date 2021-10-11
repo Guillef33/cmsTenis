@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
   
+    
   </head>
   <body>
     <div id="container">
@@ -32,6 +33,8 @@
             <li> <a href="http://localhost/php/cms2021/admin.php">Ir al admin</a></li>
             <li> <a href="http://localhost/php/cms2021/admin.php?action=logout">Log Out</a></li>
             <li><a href="http://localhost/php/cms2021/admin.php?action=newArticle">Subir Nota</a></li>
+            <li><a href="http://localhost/php/cms2021/templates/contact.php">Contacto</a></li>
+
           </div>
         </div>
       </div>
