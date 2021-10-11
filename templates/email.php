@@ -8,6 +8,8 @@ require './vendor/phpmailer/phpmailer/src/Exception.php';
 require './vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require './vendor/phpmailer/phpmailer/src/SMTP.php';
 
+// Revisar https://www.youtube.com/watch?v=ol0EAYvwyH4
+
 function enviarEmail (){
     if (isset($_POST['name']) && isset($_POST['email']) ) {
         $name = $_POST['name'];
