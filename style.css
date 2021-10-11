@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #CEEBDF;
+    background-color: red;
     font-family: 'Rubik', sans-serif;
     /* line-height: 1.5em; */
   }
@@ -164,8 +164,8 @@ a {
     margin: 20px auto;
     padding: 40px 20px;
     overflow: auto;
-    background: #fff4cf;
-    border: 1px solid #666;
+    background: #CEEBDF;
+    /* border: 1px solid #666; */
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;  
     border-radius: 5px;
@@ -197,11 +197,11 @@ a {
   /* The field labels */
   
   label {
-    display: block;
+    /* display: block;
     float: left;
     clear: left;
     text-align: right;
-    width: 15%;
+    width: 15%; */
     padding: .4em 0 0 0;
     margin: .15em .5em 0 0;
   }
@@ -281,7 +281,7 @@ a {
     -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
     box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
     color: #fff;
-    background: #ef7d50;
+    background: #00a0b0;
     font-weight: bold;
     -webkit-appearance: none;
   }
@@ -289,7 +289,7 @@ a {
   input[type="submit"]:hover, input[type="submit"]:active {
     cursor: pointer;
     background: #fff;
-    color: #ef7d50;
+    color: #00a0b0;
   }
   
   input[type="submit"]:active {
@@ -320,7 +320,7 @@ a {
   th {
     border-left: none;
     border-right: none;
-    background: #ef7d50;
+    background: #CEEBDF;
     color: #fff;
     cursor: default;
   }

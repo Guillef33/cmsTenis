@@ -1,0 +1,9 @@
+Mostrar imagenes
+
+Como es la estructura del proyecto
+	Uso de action por GET
+
+PHP Mailer
+
+Filtrar por categorias
+
