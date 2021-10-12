@@ -160,4 +160,27 @@ function listArticles() {
   require( TEMPLATE_PATH . "/admin/listArticles.php" );
 }
 
+// Funcion creada para filtrar por categoria 
+
+function listArticlesByCategory()
+{
+  $results = array();
+  $data = Article::getList();
+  $results['articles'] = $data['results'];
+  $results['totalRows'] = $data['totalRows'];
+  $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
+  $results['pageTitle'] = "All Articles";
+
+  if (isset($_GET['error'])) {
+    if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
+  }
+
+  if (isset($_GET['status'])) {
+    if ($_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved.";
+    if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
+  }
+
+  require(TEMPLATE_PATH . "/admin/listArticles.php");
+}
+
 ?>
