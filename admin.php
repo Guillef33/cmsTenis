@@ -3,6 +3,7 @@
 require( "config.php" );
 session_start();
 /*URL AMIGABLES
+
 1. El cliente no necesita saber donde esta cada archivo
 2. el cliente no ve el formato del archivo .php .html .asp
 3. el cliente nunca puede ir a una pagina privada a menos que este logeado
@@ -28,7 +29,6 @@ if ( $action != "login" && $action != "logout" && !$username ) {
   login();
   exit;
 }
-
 switch ( $action ) {
   case 'login':
     login();
@@ -44,6 +44,9 @@ switch ( $action ) {
     break;
   case 'deleteArticle':
     deleteArticle();
+    break;
+  case 'articles':
+    listArticlesByCategory();
     break;
   default:
     listArticles();/*Si $_GET["action"] esta vacio o tiene una palabra que no coincide con los cases de switch , por defecto va a ir siempre a listArticles.*/
@@ -189,6 +192,7 @@ function listArticlesByCategory()
   $results['totalRows'] = $data['totalRows'];
   $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
   $results['pageTitle'] = "All Articles";
+  var_dump($results);
 
   if (isset($_GET['error'])) {
     if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
@@ -199,7 +203,7 @@ function listArticlesByCategory()
     if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
   }
 
-  require(TEMPLATE_PATH . "/admin/listArticles.php");
+  //require(TEMPLATE_PATH . "/admin/listArticles.php");
 }
 
 ?>

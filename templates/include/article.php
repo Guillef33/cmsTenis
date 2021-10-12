@@ -6,7 +6,7 @@
 
         <img src="templates/images/<?php echo htmlspecialchars( $article->image ) ?>">    
         <p class="pubDate"><?php echo date('j F', $article->publicationDate)?></p>
-        <p class="pubDate"><?php echo htmlspecialchars( $article->category )?></p>
+        <a class="pubDate" href="?action=articles&category=<?php echo $article->category ?>"><?php echo htmlspecialchars( $article->category)?></a>
         <p class="pubDate"><?php echo htmlspecialchars( $article->author )?></p>
       </div>
       <h2>
