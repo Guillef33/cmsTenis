@@ -2,14 +2,33 @@
 
 require( "config.php" );
 session_start();
-$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+/*URL AMIGABLES
+
+1. El cliente no necesita saber donde esta cada archivo
+2. el cliente no ve el formato del archivo .php .html .asp
+3. el cliente nunca puede ir a una pagina privada a menos que este logeado
+4. Podemos tener una pagina por defecto , la cual el usuario ira cuando no coincide con la ruta de ninguna pagina.
+
+*/
+$action = isset( $_GET['action'] ) ? $_GET['action'] : ""; 
+/*El parametro que viene por URL 
+EJ:localhost/cmsTenis/*PARAMETRO*   <-  $_GET["action"]
+
+localhost/cmsTenis/login      $_GET["action"] = "login"
+
+localhost/cmsTenis/contact    $_GET["action"] = "contact"
+*/
 $username = isset( $_SESSION['username'] ) ? $_SESSION['username'] : "";
 
+/*
+Si no estamos en el login AND no estamos en logout AND el usuario no esta logeado.
+Entonces -> lo lleva al login();
+Notas:
+*/
 if ( $action != "login" && $action != "logout" && !$username ) {
   login();
   exit;
 }
-
 switch ( $action ) {
   case 'login':
     login();
@@ -26,11 +45,14 @@ switch ( $action ) {
   case 'deleteArticle':
     deleteArticle();
     break;
+  case 'articles':
+    listArticlesByCategory();
+    break;
   default:
-    listArticles();
+    listArticles();/*Si $_GET["action"] esta vacio o tiene una palabra que no coincide con los cases de switch , por defecto va a ir siempre a listArticles.*/
 }
 
-
+/*Esta funcion hace 2 cosas, muestra la vista de login y tambien recibe del formulario para hacer la logica del logeo*/
 function login() {
 
   $results = array();
@@ -170,6 +192,7 @@ function listArticlesByCategory()
   $results['totalRows'] = $data['totalRows'];
   $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
   $results['pageTitle'] = "All Articles";
+  var_dump($results);
 
   if (isset($_GET['error'])) {
     if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
@@ -180,7 +203,7 @@ function listArticlesByCategory()
     if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
   }
 
-  require(TEMPLATE_PATH . "/admin/listArticles.php");
+  //require(TEMPLATE_PATH . "/admin/listArticles.php");
 }
 
 ?>

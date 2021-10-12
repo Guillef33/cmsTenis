@@ -10,6 +10,9 @@ switch ( $action ) {
   case 'viewArticle':
     viewArticle();
     break;
+  case 'articles':
+    listArticlesByCategory();
+    break;
   default:
     homepage();
 }
@@ -43,4 +46,30 @@ function homepage() {
   $results['totalRows'] = $data['totalRows'];
   $results['pageTitle'] = "El blog de Front End";
   require( TEMPLATE_PATH . "/homepage.php" );
+}
+function listArticlesByCategory()
+{
+  $results = array();
+  $category = $_GET["category"];
+  $numRows=1000000;
+  $data = Article::getListByCategory($numRows,$category);
+  $results['articles'] = $data['results'];
+  $results['totalRows'] = $data['totalRows'];
+  $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
+  $results['pageTitle'] = "All Articles";
+
+  echo "<pre>";
+  var_dump($results);
+  echo "</pre>";
+
+  if (isset($_GET['error'])) {
+    if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
+  }
+
+  if (isset($_GET['status'])) {
+    if ($_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved.";
+    if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
+  }
+
+  //require(TEMPLATE_PATH . "/admin/listArticles.php");
 }
