@@ -364,3 +364,7 @@ a {
     border: 1px solid #800;
     color: #fff;
   }
+
+  .img-view {
+    width: 300px !important;
+  }

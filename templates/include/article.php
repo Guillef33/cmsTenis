@@ -3,7 +3,7 @@
   <li>
     <div class="articleBody">
       <div class="article-top-data">
-        <img src="templates\images\" <?php echo htmlspecialchars($article->image) ?>">
+        <img src="templates/images/<?php echo (($article->author)) ?>" class="img-view" style="height:200px">
         <p class="pubDate"><?php echo date('j F', $article->publicationDate) ?></p>
         <a class="pubDate" href="?action=articles&category=<?php echo $article->category ?>"><?php echo htmlspecialchars($article->category) ?></a>
         <p class="pubDate"><?php echo htmlspecialchars($article->author) ?></p>
