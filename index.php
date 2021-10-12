@@ -47,29 +47,45 @@ function homepage() {
   $results['pageTitle'] = "El blog de Front End";
   require( TEMPLATE_PATH . "/homepage.php" );
 }
+
+
 function listArticlesByCategory()
 {
   $results = array();
-  $category = $_GET["category"];
-  $numRows=1000000;
-  $data = Article::getListByCategory($numRows,$category);
+  $data = Article::getListByCategory(HOMEPAGE_NUM_ARTICLES, $category);
   $results['articles'] = $data['results'];
+  var_dump($data['results']);
+
   $results['totalRows'] = $data['totalRows'];
-  $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
-  $results['pageTitle'] = "All Articles";
+  $results['category'] = $data['category'];
 
-  echo "<pre>";
-  var_dump($results);
-  echo "</pre>";
+  $results['pageTitle'] = "Categorias";
+  require(TEMPLATE_PATH . "/homepage.php");
+// }
 
-  if (isset($_GET['error'])) {
-    if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
-  }
+// function listArticlesByCategory()
+// {
+//   $results = array();
+//   $category = $_GET["category"];
+//   $numRows=1000000;
+//   $data = Article::getListByCategory($numRows,$category);
+//   $results['articles'] = $data['results'];
+//   $results['totalRows'] = $data['totalRows'];
+//   $results['category'] = $data['category']; // Agregue esto, no se si esta ok. 
+//   $results['pageTitle'] = "Categoria";
 
-  if (isset($_GET['status'])) {
-    if ($_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved.";
-    if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
-  }
+  // echo "<pre>";
+  // var_dump($results);
+  // // echo "</pre>";
 
-  //require(TEMPLATE_PATH . "/admin/listArticles.php");
+  // if (isset($_GET['error'])) {
+  //   if ($_GET['error'] == "articleNotFound") $results['errorMessage'] = "Error: Article not found.";
+  // }
+
+  // if (isset($_GET['status'])) {
+  //   if ($_GET['status'] == "changesSaved") $results['statusMessage'] = "Your changes have been saved.";
+  //   if ($_GET['status'] == "articleDeleted") $results['statusMessage'] = "Article deleted.";
+  // }
+
+  // require(TEMPLATE_PATH . "/admin/listArticles.php");
 }

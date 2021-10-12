@@ -152,7 +152,7 @@ class Article
     return ( array ( "results" => $list, "totalRows" => $totalRows[0] ) );
   }
 
-  public static function getListByCategory( $numRows,$category) {
+  public static function getListByCategory($numRows, $category) {
     $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
     $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM articles
             WHERE category = :category ORDER BY publicationDate DESC LIMIT :numRows";
