@@ -1,0 +1,26 @@
+Dudas
+
+	Las rutas en los links del menu, las agregue directo con localhost. tal vez se puede usar la variable 
+
+	Analizar el archivo admin.php
+
+	Si quisieramos filtrar por categorias. Es decir, que haya una pagina de archive.php pero por categorias, y que al hacer clic en una categoria del articulo te envie a esa pagina. 
+
+	Agregue la funcion listArticlesByCategory
+
+	Agregar imagen en articulo
+
+	Agregar imagen en single page
+
+	// Proxima Clase
+
+PHP Mailer
+
+	Suscripcion
+
+	Crear formulario de registro para usuario no admin, que pueda editar y subir notas, pero no borrar
+
+
+
+
+	
